@@ -3,15 +3,13 @@ import classNames from "classnames/bind";
 import styles from "./card.module.css";
 import { toggleFavoriteCat } from "../../store/catsSlice";
 
-const HeartIcon = ({isFavorite}) => {
-
+const HeartIcon = ({ isFavorite }) => {
   const cx = classNames.bind(styles);
-  
-    const backgroundClass = cx({
-      background: true,
-      active: isFavorite,
-    });
 
+  const backgroundClass = cx({
+    background: true,
+    active: isFavorite,
+  });
 
   return (
     <svg
@@ -38,7 +36,7 @@ export const Card = ({ id, url }) => {
   const dispatch = useDispatch();
 
   const favorites = useSelector((state) => state.cats.favorites);
-  const isFavorite = favorites.some((cat) => cat.id === id); 
+  const isFavorite = favorites.some((cat) => cat.id === id);
 
   const cat = { id, url };
 

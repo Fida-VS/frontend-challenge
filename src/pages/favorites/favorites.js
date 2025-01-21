@@ -4,7 +4,6 @@ import { Card } from "../../components/card/card";
 import { useSelector } from "react-redux";
 
 export const Favorites = () => {
-
   const favoritesCats = useSelector((state) => state.cats.favorites);
 
   return (

@@ -1,10 +1,7 @@
 import styles from "./header.module.css";
 import { NavLink } from "react-router-dom";
 
-
 export const Header = () => {
-  
-
   return (
     <div className={styles.header}>
       <div className={styles.menu}>

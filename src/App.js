@@ -7,46 +7,42 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFavoriteCat } from "./store/catsSlice";
 import { Error } from "./components/error/error";
 
-
 function App() {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.cats.favorites);
 
-  const dispatch = useDispatch();  
-  const favorites = useSelector((state) => state.cats.favorites); 
+  const loadFavoritesFromLocalStorage = () => {
+    const data = localStorage.getItem("favoriteCats");
+    return data ? JSON.parse(data) : [];
+  };
 
-  const loadFavoritesFromLocalStorage = () => {  
-    const data = localStorage.getItem('favoriteCats');  
-    return data ? JSON.parse(data) : [];  
-  };  
-  
-  const saveFavoritesToLocalStorage = (favorites) => {  
-    localStorage.setItem('favoriteCats', JSON.stringify(favorites));  
-  };  
+  const saveFavoritesToLocalStorage = (favorites) => {
+    localStorage.setItem("favoriteCats", JSON.stringify(favorites));
+  };
 
-  useEffect(() => {  
-    const savedFavorites = loadFavoritesFromLocalStorage();  
-    savedFavorites.forEach((cat) => {  
-      if (!favorites.some(fav => fav.id === cat.id)) {  
-        dispatch(toggleFavoriteCat(cat)); 
-      }  
-    });  
+  useEffect(() => {
+    const savedFavorites = loadFavoritesFromLocalStorage();
+    savedFavorites.forEach((cat) => {
+      if (!favorites.some((fav) => fav.id === cat.id)) {
+        dispatch(toggleFavoriteCat(cat));
+      }
+    });
   }, [dispatch, favorites]);
 
-  useEffect(() => {  
-    saveFavoritesToLocalStorage(favorites);  
-  }, [favorites]); 
+  useEffect(() => {
+    saveFavoritesToLocalStorage(favorites);
+  }, [favorites]);
 
   return (
     <>
-    <Header />
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/favorites" element={<Favorites />} />
-      <Route path="*" element={<Error>Такая страница не существует</Error>} />
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="*" element={<Error>Такая страница не существует</Error>} />
+      </Routes>
     </>
   );
 }
 
 export default App;
-
-

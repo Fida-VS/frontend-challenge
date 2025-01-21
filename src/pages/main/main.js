@@ -13,6 +13,7 @@ export const Main = () => {
     dispatch(fetchCats());
   }, [dispatch]);
 
+ 
   const cats = useSelector((state) => state.cats.cats);
   const { loading, error } = useSelector((state) => state.cats);
 

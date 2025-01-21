@@ -25,7 +25,7 @@ function App() {
     const savedFavorites = loadFavoritesFromLocalStorage();  
     savedFavorites.forEach((cat) => {  
       if (!favorites.some(fav => fav.id === cat.id)) {  
-        dispatch(toggleFavoriteCat(cat));  
+        dispatch(toggleFavoriteCat(cat)); 
       }  
     });  
   }, [dispatch, favorites]);

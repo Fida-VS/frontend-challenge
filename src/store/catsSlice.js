@@ -2,7 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cats: [],
-  favorites: []
+  loading: false,
+  error: null,
+  favorites: [],
+  isClicked: false,
+  isFavorite: false,
 };
 
 
@@ -46,6 +50,9 @@ const catsSlice = createSlice({
       }  
       saveFavoritesToLocalStorage(state.favorites);
     },  
+    toggleClick (state) {
+      state.isClicked = !state.isClicked;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -69,7 +76,7 @@ const saveFavoritesToLocalStorage = (favorites) => {
   localStorage.setItem('favoriteCats', JSON.stringify(favorites));  
 }; 
 
-export const { toggleFavoriteCat } = catsSlice.actions;
+export const { toggleFavoriteCat, toggleClick } = catsSlice.actions;
 
 export default catsSlice.reducer;
 

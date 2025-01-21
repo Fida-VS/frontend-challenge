@@ -3,6 +3,7 @@ import styles from "./main.module.css";
 import { useEffect } from "react";
 import { fetchCats } from "../../store/catsSlice";
 import { Card } from "../../components/card/card";
+import { Loader } from "../../components/loader/loader";
 
 
 export const Main = () => {
@@ -15,11 +16,13 @@ export const Main = () => {
     }, [dispatch]);
 
     const cats = useSelector(state => state.cats.cats);
+    const { loading, error } = useSelector(state => state.cats);
 
-    console.log(cats)
 
   return (
     <div className={styles.main}>
+      {loading && <Loader />}
+      {error && <div className={styles.error}>An error occured: {error}</div>}
       {cats.map(
 							(cat) => (
 								<Card 

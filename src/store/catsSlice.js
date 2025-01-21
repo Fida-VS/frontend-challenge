@@ -5,8 +5,6 @@ const initialState = {
   loading: false,
   error: null,
   favorites: [],
-  isClicked: false,
-  isFavorite: false,
 };
 
 
@@ -50,9 +48,6 @@ const catsSlice = createSlice({
       }  
       saveFavoritesToLocalStorage(state.favorites);
     },  
-    toggleClick (state) {
-      state.isClicked = !state.isClicked;
-    },
   },
   extraReducers: (builder) => {
     builder

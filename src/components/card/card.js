@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames/bind";
 import styles from "./card.module.css";
-import { toggleClick, toggleFavoriteCat } from "../../store/catsSlice";
+import { toggleFavoriteCat } from "../../store/catsSlice";
 
 const HeartIcon = ({isFavorite}) => {
-  // const isClicked = useSelector((state) => state.cats.isClicked);
 
   const cx = classNames.bind(styles);
   
@@ -44,7 +43,6 @@ export const Card = ({ id, url }) => {
   const cat = { id, url };
 
   const onHandleClick = () => {
-    dispatch(toggleClick());
     dispatch(toggleFavoriteCat(cat));
   };
 

@@ -5,6 +5,7 @@ import { Favorites } from "./pages/favorites/favorites";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavoriteCat } from "./store/catsSlice";
+import { Error } from "./components/error/error";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="*" element={<Error>Такая страница не существует</Error>} />
     </Routes>
     </>
   );

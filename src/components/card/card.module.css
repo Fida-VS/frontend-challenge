@@ -17,11 +17,35 @@
 
 .likeButton {  
     position: absolute; 
-    bottom: 15px;  
-    left: 180px; 
+    top: 62%;  
+    left:72%; 
     background: transparent;   
     border: none; 
     cursor: pointer;  
-    width: 40px; 
-    height: 40px;     
+    width: 48px; 
+    height: 48px;     
   } 
+
+  .heartIcon {  
+    cursor: pointer; /* Указатель для наведения */  
+}  
+
+.background {  
+    fill: transparent; /* Цвет фона по умолчанию (внутри сердечка) */  
+    transition: fill 0.3s ease; /* Плавный переход для фона */  
+}  
+
+.path {  
+    fill: none; /* Убираем заливку для самого контура */  
+    stroke: #F24E1E; /* Цвет контура (если нужно) */  
+    stroke-width: 3; /* Ширина контура */  
+    transition: stroke 0.3s ease; /* Плавный переход для контура */  
+}  
+
+.heartIcon:hover .background {  
+    fill: #F24E1E; /* Цвет фона при наведении */  
+}  
+
+.heartIcon:hover .path {  
+    stroke: #F24E1E; /* Цвет обводки при наведении (если требуется) */  
+}  

@@ -1,22 +1,25 @@
 .header {
-    width: 1440px;
-    height: 64px;
-    background-color: #2196F3;
-    margin: 0 auto;
+    width: 100%; /* Change to full width */  
+    height: 64px;  
+    background-color: #2196F3;  
+    margin: 0 auto;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */  
+    display: flex; /* Added to align children */  
+    align-items: center; 
+    margin-bottom: 50px;
+    z-index: 200;
 }
 
 .menu {
-    margin-left: 62px;
-    width: 293px;
-    height: 64px;;
-    display: flex;
+    margin-left: 30px; /* Adjusted left margin */  
+    display: flex; 
 }
 
 .menu div {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center; 
 }
 
 .active {
@@ -24,10 +27,10 @@ background-color: #1E88E5;
 }
 
 .menu a {
-    text-decoration: none;
-    color: #fff;
-    font-family: "Roboto", serif;
-    font-weight: 400;
-    font-size: 14px;
-    padding: 23px;
+    text-decoration: none;  
+    color: #fff;  
+    font-family: "Roboto", serif;  
+    font-weight: 400;  
+    font-size: 14px;  
+    padding: 20px; 
 } 

@@ -1,0 +1,10 @@
+.main {
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
